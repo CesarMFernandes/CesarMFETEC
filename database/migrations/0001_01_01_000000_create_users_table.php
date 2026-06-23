@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 25);
             $table->string('email')->unique();
-            $table->enum('cargo', ['aluno', 'professor', 'coordenador'])->default('aluno');
+            $table->enum('cargo', ['aluno', 'professor', 'coordenador'])->default('aluno'); //cargo (aluno, professor, coordenador)
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

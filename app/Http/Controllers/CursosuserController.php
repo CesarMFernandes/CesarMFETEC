@@ -31,6 +31,7 @@ class CursosuserController extends Controller
      */
     public function store(Request $request)
     {
+        //Nega a matricula caso ela já tenha sido feita
         if(Cursosuser::where('user_id', $request->user()->id)->where('curso_id', $request->curso)->count() != 0){
             Gate::authorize('create', Cursosuser::class);
         }
@@ -76,6 +77,7 @@ class CursosuserController extends Controller
     {
         $user = $request->user()->id;
         
+        //Remove a matrícula usando usuário e curso especificado
         Cursosuser::where('user_id', $user)->where('curso_id', $curso->id)->delete();
 
         return redirect()->route('cursos')->with('Sucesso', 'Curso deletado com sucesso!');

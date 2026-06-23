@@ -14,6 +14,7 @@ class AtividadeController extends Controller
      */
     public function index(Curso $curso)
     {
+        //Pega todas as atividades desse curso
         $atividades = Atividade::where('curso_id', $curso->id)->orderBy('hora_entrega', 'asc')->get();
         return view('atividades', compact('curso'), compact('atividades'));
     }
@@ -23,6 +24,7 @@ class AtividadeController extends Controller
      */
     public function create(Curso $curso)
     {
+        //Carrega form de insert
         return view('forms.atividades.insert-atividades', compact('curso'));
     }
 
@@ -39,9 +41,10 @@ class AtividadeController extends Controller
         ['hora_entrega.after' => 'O campo data e hora deve ser uma data posterior a agora.'],
         );
 
+        //Pega o id do curso que deve inserir
         $validated['curso_id'] = $curso->id;
         
-        // Use the authenticated user
+        //Usa o usuário autenticado
         $atividade = Atividade::create($validated);
 
         return redirect(route('atividades', $curso));
@@ -60,6 +63,7 @@ class AtividadeController extends Controller
      */
     public function edit(Curso $curso, Atividade $atividade)
     {
+        //Carrega form de update
         return view('forms.atividades.update-atividades', compact('curso', 'atividade'));
     }
 

@@ -14,6 +14,7 @@ class EventoController extends Controller
      */
     public function index()
     {
+        //Pega todos os eventos
         $eventos = Evento::with('user')->orderBy('hora_evento', 'asc')->get();
         return view('dashboard', compact('eventos'));
     }
@@ -23,6 +24,7 @@ class EventoController extends Controller
      */
     public function create()
     {
+        //Carrega formulário de insert
         return view('forms.eventos.insert-eventos');
     }
 
@@ -41,13 +43,15 @@ class EventoController extends Controller
         ['hora_evento.after' => 'O campo data e hora deve ser uma data posterior a agora.'],
         );
 
+
+        //Postagem de imagem
         if ($request->hasFile('caminho_img')) {
-            $nomeImagem = time() . '.' . $request->file('caminho_img')->getClientOriginalExtension();
-            $request->file('caminho_img')->move(public_path('assets/images_evento'), $nomeImagem);
-            $validated['caminho_img'] = $nomeImagem; 
+            $nomeImagem = time() . '.' . $request->file('caminho_img')->getClientOriginalExtension(); //Coloca a imagem no diretório correto
+            $request->file('caminho_img')->move(public_path('assets/images_evento'), $nomeImagem); //Gera o nome do caminho
+            $validated['caminho_img'] = $nomeImagem; //Coloca o nome do caminho na tabela
         }
         
-        // Use the authenticated user
+        //Usa o usuário autenticado
         auth()->user()->eventos()->create($validated);
 
         return redirect('/dashboard');
@@ -66,6 +70,7 @@ class EventoController extends Controller
      */
     public function edit(Evento $evento)
     {
+        //Carrega form de update
         return view('forms.eventos.update-eventos', compact('evento'));
     }
 

@@ -21,12 +21,14 @@
                     <x-input-error :messages="$errors->get('texto')" class="mt-2" />
                 </div>
 
+                <!-- Horário do evento -->
                 <div class="mb-5">
                     <x-input-label for="hora_evento" :value="__('Horário do Evento')" />
                     <x-text-input id="hora_evento" name="hora_evento" type="datetime-local" class="mt-1 block w-full" required />
                     <x-input-error class="mt-2" :messages="$errors->get('hora_evento')" />
                 </div>
 
+                <!-- Imagem -->
                 <div class="mb-[50px]">
                     <x-input-label for="caminho_img" :value="__('Imagem')" />
                     <x-text-input id="caminho_img" name="caminho_img" type="file" class="mt-1 block w-full" />

@@ -19,11 +19,14 @@
                 </div>
             </div>
 
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    <x-configurar-matriculas-form :cursos="$cursos"></x-configurar-matriculas-form>
+            <!--Formulário de matrícula de curso-->
+            @if(Auth::user()->cargo == "aluno")
+                <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
+                    <div class="max-w-xl">
+                        <x-configurar-matriculas-form :cursos="$cursos"></x-configurar-matriculas-form>
+                    </div>
                 </div>
-            </div>
+            @endif
         </div>
     </div>
 </x-app-layout>

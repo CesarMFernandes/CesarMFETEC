@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('atividades', function (Blueprint $table) {
             $table->id();
-            $table->string('texto', 50)->required();
-            $table->dateTime('hora_entrega')->required();
-            $table->foreignId('curso_id')->constrained()->cascadeOnDelete()->required();
+            $table->string('texto', 50)->required(); //Texto
+            $table->dateTime('hora_entrega')->required(); //Horário da entrega
+            $table->foreignId('curso_id')->constrained()->cascadeOnDelete()->required(); //Curso da atividade
             $table->timestamps();
         });
     }

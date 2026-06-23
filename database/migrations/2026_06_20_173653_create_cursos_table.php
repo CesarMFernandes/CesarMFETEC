@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
+        //Cursos
         Schema::create('cursos', function (Blueprint $table) {
             $table->id();
-            $table->string('nome', 20)->required();
-            $table->enum('cor', ['purple', 'blue', 'green', 'yellow', 'orange', 'red'])->required()->default('blue');
-            $table->foreignId('user_id')->constrained()->restrictOnDelete()->required();  
+            $table->string('nome', 20)->required(); //Nome do curso
+            $table->enum('cor', ['purple', 'blue', 'green', 'yellow', 'orange', 'red'])->required()->default('blue'); //Cor que representa o curso
+            $table->foreignId('user_id')->constrained()->restrictOnDelete()->required(); //Professor que criou o curso
             $table->timestamps();
         });
     }

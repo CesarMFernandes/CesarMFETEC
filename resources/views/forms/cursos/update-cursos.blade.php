@@ -15,6 +15,7 @@
                     <x-input-error :messages="$errors->get('nome')" class="mt-2" />
                 </div>
 
+                <!-- Cor representante do curso -->
                 <div class="mt-4 mb-20">
                     <x-input-label for="cor" :value="__('Cor')" />
 

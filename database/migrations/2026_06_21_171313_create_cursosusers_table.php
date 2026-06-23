@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
+        //Tabela de ligação -> cursos e usuários
         Schema::create('cursosusers', function (Blueprint $table) {
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete()->required();
-            $table->foreignId('curso_id')->constrained()->cascadeOnDelete()->required();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete()->required(); //Aluno
+            $table->foreignId('curso_id')->constrained()->cascadeOnDelete()->required(); //Curso
             $table->timestamps();
 
             $table->primary(['user_id', 'curso_id']);

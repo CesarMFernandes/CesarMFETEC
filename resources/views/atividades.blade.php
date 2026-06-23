@@ -6,15 +6,19 @@
     </x-slot>
 
     <div class="py-12">
+        <!--Botão de postar atividade. Aparece apenas para o dono do curso-->
         @if(Auth::user()->id == $curso->user_id)
             <a href="{{ route('atividades.formcreate', $curso->id) }}">
                 <x-primary-button class="m-2 bg-gray-900">Postar Atividade</x-primary-button>
             </a>
         @endif
+
+        <!--Mostra as atividades-->
         <div class="max-w-full mx-auto sm:px-6 lg:px-8">  
                 @forelse($atividades as $atividade)
                     <x-atividade-card :atividade="$atividade" :curso="$curso"></x-atividade-card>
                 @empty
+                <!--Aparece caso não tenha atividades-->
                 <div class="p-6 bg-white text-center shadow-2xl border-solid border-[1px] border-black text-gray-900 rounded-lg">
                     Ainda não há atividades postadas
                 </div>

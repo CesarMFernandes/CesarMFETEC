@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
+        //eventos
         Schema::create('eventos', function (Blueprint $table) {
             $table->id();
-            $table->string('titulo', 30)->required();
-            $table->string('texto', 255)->required();
-            $table->string('caminho_img', 255)->nullable();
-            $table->dateTime('hora_evento')->required();
-            $table->foreignId('user_id')->constrained()->restrictOnDelete()->required();           
+            $table->string('titulo', 30)->required(); //Título
+            $table->string('texto', 255)->required(); //Texto
+            $table->string('caminho_img', 255)->nullable(); //Caminho da imagem
+            $table->dateTime('hora_evento')->required(); //Horário do evento
+            $table->foreignId('user_id')->constrained()->restrictOnDelete()->required(); //Coordenador que postou o evento       
             $table->timestamps();
         });
     }

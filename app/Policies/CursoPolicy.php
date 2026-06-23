@@ -29,7 +29,7 @@ class CursoPolicy
      */
     public function create(User $user): bool
     {
-        return $user->cargo == "professor";
+        return $user->cargo != "aluno";
     }
 
     /**
