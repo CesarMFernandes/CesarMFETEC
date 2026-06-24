@@ -19,3 +19,6 @@
 
 <h3>Fallback</h3>
 <p>Página que te retorna para o landing</p>
+
+<h2>Como Rodar</h2>
+<p>Coloque o projeto na pasta xampp/htdocs, crie a database 'cesarmfetec', rode as migrations com o comando 'php artisan migrate' e rode o site com o comando 'composer run dev'</p>
