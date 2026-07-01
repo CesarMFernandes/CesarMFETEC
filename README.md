@@ -22,3 +22,6 @@
 
 <h2>Como Rodar</h2>
 <p>Coloque o projeto na pasta xampp/htdocs, crie a database 'cesarmfetec', rode as migrations com o comando 'php artisan migrate' e rode o site com o comando 'composer run dev'</p>
+
+<h2>Vídeo de exibição:</h2>
+<p>https://www.youtube.com/watch?v=I528PUDf1ZI</p>
